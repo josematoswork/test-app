@@ -1,0 +1,11 @@
+<input
+  class="form-control"
+  [type]="type"
+  [value]="''"
+  [disabled]="isDisabled"
+  [required]="isRequired"
+  [readonly]="isReadOnly"
+  [attr.maxlength]="maxLength"
+  [placeholder]="placeholder ? placeholder : ''"
+  (input)="onInputChange($event)"
+/>
