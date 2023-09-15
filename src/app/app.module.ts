@@ -3,10 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { TextInputModule } from 'my-library';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, TextInputModule],
+  imports: [BrowserModule, ReactiveFormsModule, TextInputModule],
   providers: [],
   bootstrap: [AppComponent],
 })

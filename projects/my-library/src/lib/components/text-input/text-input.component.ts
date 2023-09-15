@@ -1,23 +1,11 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-  forwardRef,
-} from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Component, Inject, Input, Optional, Self } from '@angular/core';
+import { ControlValueAccessor, NgControl } from '@angular/forms';
+import { FORM_ERROR_PROVIDER } from '../../constants/error-factory';
 
 @Component({
   selector: 'mylib-text-input',
   templateUrl: './text-input.component.html',
   styleUrls: ['./text-input.component.css'],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => TextInputComponent),
-      multi: true,
-    },
-  ],
 })
 export class TextInputComponent implements ControlValueAccessor {
   @Input() type?: string = 'text';
@@ -27,11 +15,20 @@ export class TextInputComponent implements ControlValueAccessor {
   @Input() maxLength?: number;
   @Input() placeholder?: string = '';
 
-  private value: any;
+  errorText: string = '';
+  value: any;
 
   onChange: (_: any) => void = (_: any) => {};
   onTouched: () => void = () => {};
 
+  constructor(
+    @Inject(FORM_ERROR_PROVIDER) private errorFactory: any,
+    @Self() @Optional() public ngControl: NgControl // Inject NgControl
+  ) {
+    if (ngControl) {
+      ngControl.valueAccessor = this;
+    }
+  }
   writeValue(value: any): void {
     this.value = value;
   }
@@ -52,5 +49,22 @@ export class TextInputComponent implements ControlValueAccessor {
     this.value = event.target.value;
     this.onChange(this.value);
     this.onTouched();
+    this.setErrorText();
+  }
+
+  private setErrorText(): void {
+    if (
+      this.ngControl &&
+      this.ngControl.control &&
+      this.ngControl.control.errors
+    ) {
+      const errorKeys = Object.keys(this.ngControl.control.errors);
+      const errorKey = errorKeys[0];
+      this.errorText = this.errorFactory[errorKey](
+        this.ngControl.control.errors[errorKey]
+      );
+    } else {
+      this.errorText = '';
+    }
   }
 }
