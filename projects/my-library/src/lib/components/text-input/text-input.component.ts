@@ -1,8 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, Inject, Input, Optional, Self } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
 import { FORM_ERROR_PROVIDER } from '../../constants/error-factory';
 
 @Component({
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'mylib-text-input',
   templateUrl: './text-input.component.html',
   styleUrls: ['./text-input.component.css'],
@@ -15,10 +17,12 @@ export class TextInputComponent implements ControlValueAccessor {
   @Input() maxLength?: number;
   @Input() placeholder?: string = '';
 
-  errorText: string = '';
+  errorText = '';
   value: any;
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-empty-function
   onChange: (_: any) => void = (_: any) => {};
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   onTouched: () => void = () => {};
 
   constructor(
@@ -42,7 +46,7 @@ export class TextInputComponent implements ControlValueAccessor {
   }
 
   setDisabledState(isDisabled: boolean): void {
-     this.isDisabled = isDisabled;
+    this.isDisabled = isDisabled;
   }
 
   onInputChange(event: any) {

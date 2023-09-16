@@ -1,0 +1,36 @@
+@import './01.variables.scss';
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+
+  .tooltip-content {
+    display: none;
+    position: absolute;
+    background-color: $background-color;
+    border: 1px solid $border-color;
+    padding: $spacing-small;
+    border-radius: $border-radius;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: $z-index-tooltip;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -8px;
+      left: 50%;
+      border-width: 8px;
+      border-style: solid;
+      border-color: transparent transparent $background-color transparent;
+      transform: translateX(-50%);
+    }
+  }
+
+  &:hover {
+    .tooltip-content {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+@import './01.variables.scss';
+
+.navbar {
+  background-color: $primary-color;
+  color: #fff;
+  padding: $spacing-medium;
+}
+
+.nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item {
+  display: inline-block;
+  margin-right: $spacing-medium;
+
+  a {
+    color: #fff;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+@import './01.variables.scss';
+
+// Define media queries for responsive design
+@media screen and (max-width: $breakpoint-small) {
+  // Styles for small screens
+}
+
+@media screen and (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
+  // Styles for medium screens
+}
+
+@media screen and (min-width: $breakpoint-large) and (max-width: $breakpoint-xl) {
+  // Styles for large screens
+}
+
+@media screen and (min-width: $breakpoint-xl) {
+  // Styles for extra-large screens
+}
+
+// You can define more media queries as needed

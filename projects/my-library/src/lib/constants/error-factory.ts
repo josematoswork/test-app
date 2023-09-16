@@ -3,9 +3,13 @@ import { InjectionToken } from '@angular/core';
 export const DEFAULT_ERRORS_FACTORY = {
   required: () => 'This field is required.',
   minlength: ({ requiredLength }: { requiredLength: number }) =>
-    `Enter at least ${requiredLength} character${requiredLength === 1 ? '' : 's'}.`,
+    `Enter at least ${requiredLength} character${
+      requiredLength === 1 ? '' : 's'
+    }.`,
   maxlength: ({ requiredLength }: { requiredLength: number }) =>
-    `Enter no more than ${requiredLength} character${requiredLength === 1 ? '' : 's'}.`,
+    `Enter no more than ${requiredLength} character${
+      requiredLength === 1 ? '' : 's'
+    }.`,
   pattern: ({ requiredPattern }: { requiredPattern: string }) =>
     `Please match the required pattern: ${requiredPattern}.`,
   min: ({ min }: { min: number }) =>

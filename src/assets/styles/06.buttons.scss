@@ -1,0 +1,27 @@
+@import './01.variables.scss';
+
+.button {
+  background-color: $button-primary-bg;
+  color: $button-primary-color;
+  padding: $button-padding;
+  border-radius: $button-border-radius;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+
+  &:hover {
+    background-color: darken($button-primary-bg, 10%);
+  }
+}
+
+.secondary-button {
+  background-color: transparent;
+  color: $button-primary-bg;
+  border: 2px solid $button-primary-bg;
+
+  &:hover {
+    background-color: $button-primary-bg;
+    color: $button-primary-color;
+  }
+}

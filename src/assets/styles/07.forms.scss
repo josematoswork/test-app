@@ -1,0 +1,23 @@
+@import './01.variables.scss';
+
+.input {
+  border: 1px solid $input-border-color;
+  border-radius: $input-border-radius;
+  padding: $spacing-small;
+  font-size: $font-size-base;
+  color: $text-color;
+
+  &:focus {
+    border-color: $primary-color;
+  }
+
+  &:disabled {
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+  }
+}
+
+.label {
+  font-weight: bold;
+  margin-bottom: $spacing-small;
+}

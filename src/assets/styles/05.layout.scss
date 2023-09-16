@@ -1,0 +1,17 @@
+@import '01.variables.scss';
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -($spacing-unit / 2);
+}
+
+.column {
+  flex: 1;
+  padding: 0 ($spacing-unit / 2);
+}

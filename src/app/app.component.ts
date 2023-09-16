@@ -12,15 +12,17 @@ import {
 })
 export class AppComponent implements OnInit {
   myForm: UntypedFormGroup = new UntypedFormGroup({
-    name: new UntypedFormControl('gggg gg', [
+    name: new UntypedFormControl('', [
       Validators.required,
       Validators.minLength(3),
     ]),
   });
 
-  constructor() {}
-
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.myForm.valueChanges.subscribe(value => {
+      console.log('valueChanges', value);
+    });
+  }
 
   onSubmit(form: UntypedFormGroup) {
     console.log('Valid?', form.valid); // true or false

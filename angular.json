@@ -82,6 +82,12 @@
             "styles": ["src/styles.scss"],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
+          }
         }
       }
     },
@@ -111,6 +117,15 @@
           "options": {
             "tsConfig": "projects/my-library/tsconfig.spec.json",
             "polyfills": ["zone.js", "zone.js/testing"]
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/my-library/src/**/*.ts",
+              "projects/my-library/src/**/*.html"
+            ]
           }
         }
       }

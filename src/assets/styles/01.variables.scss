@@ -1,0 +1,51 @@
+// Typography
+$text-color: #333; // Default text color
+$font-family: 'Arial', sans-serif; // Default font family
+$font-size-base: 16px; // Base font size
+$line-height-base: 1.5; // Base line height
+
+// Colors
+$primary-color: #007bff; // Primary color
+$secondary-color: #6c757d; // Secondary color
+$success-color: #28a745; // Success color
+$warning-color: #ffc107; // Warning color
+$error-color: #dc3545; // Error color
+
+// Spacing
+$spacing-unit: 8px; // Base spacing unit
+$spacing-small: $spacing-unit * 2; // Small spacing
+$spacing-medium: $spacing-unit * 4; // Medium spacing
+$spacing-large: $spacing-unit * 6; // Large spacing
+
+// Borders
+$border-radius: 4px; // Border radius
+$border-width: 1px; // Default border width
+$border-color: #ccc; // Default border color
+
+// Inputs
+$input-border-color: $border-color; // Input border color
+$input-border-radius: $border-radius; // Input border radius
+
+// Buttons
+$button-primary-bg: $primary-color; // Primary button background color
+$button-primary-color: #fff; // Primary button text color
+$button-padding: 10px 20px; // Button padding
+$button-border-radius: $border-radius; // Button border radius
+
+// Dropdowns
+$dropdown-bg: #fff; // Dropdown background color
+$dropdown-border-color: $border-color; // Dropdown border color
+
+// Modals
+$modal-bg: rgba(0, 0, 0, 0.7); // Modal overlay background color
+
+// Z-index
+$z-index-dropdown: 1000; // Dropdown z-index
+$z-index-modal: 1100; // Modal z-index
+$z-index-tooltip: 1200; // Tooltip z-index
+
+// Breakpoints
+$breakpoint-small: 576px; // Small screen breakpoint
+$breakpoint-medium: 768px; // Medium screen breakpoint
+$breakpoint-large: 992px; // Large screen breakpoint
+$breakpoint-xl: 1200px; // Extra-large screen breakpoint
