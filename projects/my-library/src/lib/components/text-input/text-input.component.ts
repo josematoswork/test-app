@@ -23,7 +23,7 @@ export class TextInputComponent implements ControlValueAccessor {
 
   constructor(
     @Inject(FORM_ERROR_PROVIDER) private errorFactory: any,
-    @Self() @Optional() public ngControl: NgControl // Inject NgControl
+    @Self() @Optional() public ngControl: NgControl
   ) {
     if (ngControl) {
       ngControl.valueAccessor = this;
@@ -42,7 +42,7 @@ export class TextInputComponent implements ControlValueAccessor {
   }
 
   setDisabledState(isDisabled: boolean): void {
-    // implement this method if you need to support disabling the control
+     this.isDisabled = isDisabled;
   }
 
   onInputChange(event: any) {
