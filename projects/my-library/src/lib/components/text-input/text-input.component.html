@@ -2,22 +2,25 @@
   <label
     class="text-gray-800 dark:text-gray-100 text-sm font-bold leading-tight tracking-normal mb-2"
     for="name"
-    >Name:</label
+    >{{ labelText }}</label
   >
-  <input
-    class="w-full text-gray-600 dark:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 dark:focus:border-indigo-700 dark:border-gray-700 dark:bg-gray-800 bg-white font-normal h-10 flex items-center pl-3 text-sm border-gray-300 rounded border shadow"
-    id="name"
-    name="name"
-    [type]="type"
-    [value]="value || ''"
-    [disabled]="isDisabled"
-    [required]="isRequired"
-    [readonly]="isReadOnly"
-    [attr.maxlength]="maxLength"
-    [placeholder]="placeholder ? placeholder : ''"
-    (input)="onInputChange($event)" />
-
-  <div *ngIf="errorText" class="error-text">
-    {{ errorText }}
+  <div class="relative">
+    <input
+      class="w-full text-gray-600 dark:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 dark:focus:border-indigo-700 dark:border-gray-700 dark:bg-gray-800 bg-white font-normal h-10 flex items-center pl-3 text-sm border-gray-300 rounded border shadow"
+      [ngClass]="{ 'border-red-700 focus:ring-red-700': errorMessage !== '' }"
+      id="name"
+      name="name"
+      [type]="type"
+      [value]="value || ''"
+      [disabled]="isDisabled || isDisabledState"
+      [readOnly]="isReadOnly"
+      [required]="isRequired"
+      [placeholder]="placeholder ? placeholder : ''"
+      (input)="onInputChange($event)" />
+    <i-feather
+      *ngIf="errorMessage"
+      [myTooltip]="errorMessage"
+      class="absolute right-3 top-1/2 transform -translate-y-1/2 text-red-700"
+      name="alert-triangle"></i-feather>
   </div>
 </div>

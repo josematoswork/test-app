@@ -2,5 +2,7 @@
  * Public API Surface of my-library
  */
 
-export * from './lib/components/text-input/text-input.component';
-export * from './lib/components/text-input/text-input.module';
+export * from './lib/components';
+export * from './lib/constants';
+export * from './lib/directives';
+export * from './lib/modules';

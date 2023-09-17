@@ -1,5 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Component, Inject, Input, Optional, Self } from '@angular/core';
+import {
+  Component,
+  Inject,
+  Input,
+  OnInit,
+  Optional,
+  Self,
+} from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
 import { FORM_ERROR_PROVIDER } from '../../constants/error-factory';
 
@@ -9,7 +16,8 @@ import { FORM_ERROR_PROVIDER } from '../../constants/error-factory';
   templateUrl: './text-input.component.html',
   styleUrls: ['./text-input.component.css'],
 })
-export class TextInputComponent implements ControlValueAccessor {
+export class TextInputComponent implements ControlValueAccessor, OnInit {
+  @Input() labelText?: string = '';
   @Input() type?: string = 'text';
   @Input() isDisabled?: boolean = false;
   @Input() isRequired?: boolean = false;
@@ -17,8 +25,9 @@ export class TextInputComponent implements ControlValueAccessor {
   @Input() maxLength?: number;
   @Input() placeholder?: string = '';
 
-  errorText = '';
+  errorMessage = '';
   value: any;
+  isDisabledState = true;
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-empty-function
   onChange: (_: any) => void = (_: any) => {};
@@ -33,6 +42,11 @@ export class TextInputComponent implements ControlValueAccessor {
       ngControl.valueAccessor = this;
     }
   }
+
+  ngOnInit(): void {
+    console.log('isDisabled', this.isDisabled);
+  }
+
   writeValue(value: any): void {
     this.value = value;
   }
@@ -46,7 +60,7 @@ export class TextInputComponent implements ControlValueAccessor {
   }
 
   setDisabledState(isDisabled: boolean): void {
-    this.isDisabled = isDisabled;
+    this.isDisabledState = isDisabled;
   }
 
   onInputChange(event: any) {
@@ -64,11 +78,11 @@ export class TextInputComponent implements ControlValueAccessor {
     ) {
       const errorKeys = Object.keys(this.ngControl.control.errors);
       const errorKey = errorKeys[0];
-      this.errorText = this.errorFactory[errorKey](
+      this.errorMessage = this.errorFactory[errorKey](
         this.ngControl.control.errors[errorKey]
       );
     } else {
-      this.errorText = '';
+      this.errorMessage = '';
     }
   }
 }
