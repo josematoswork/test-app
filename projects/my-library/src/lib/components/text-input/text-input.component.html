@@ -1,12 +1,16 @@
 <div class="w-full flex flex-col lg:mr-16">
   <label
+    *ngIf="labelText"
     class="text-gray-800 dark:text-gray-100 text-sm font-bold leading-tight tracking-normal mb-2"
+    [ngClass]="{
+      '!text-gray-400 !dark:text-gray-50': isDisabled || isDisabledState
+    }"
     for="name"
     >{{ labelText }}
     <span
-      *ngIf="helpText"
+      *ngIf="labelHelpText"
       class="text-xs text-gray-600 dark:text-gray-400 italic font-normal">
-      - {{ helpText }}
+      - {{ labelHelpText }}
     </span>
   </label>
   <div class="relative">
@@ -31,4 +35,9 @@
       class="absolute right-3 top-1/2 transform -translate-y-1/2 text-red-700"
       name="alert-triangle"></i-feather>
   </div>
+  <p
+    *ngIf="helpText"
+    class="text-xs leading-3 tracking-normal text-gray-600 dark:text-gray-400 mt-2">
+    {{ helpText }}
+  </p>
 </div>

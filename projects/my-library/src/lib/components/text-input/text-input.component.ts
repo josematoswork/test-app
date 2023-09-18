@@ -18,6 +18,7 @@ import { FORM_ERROR_PROVIDER } from '../../constants/error-factory';
 })
 export class TextInputComponent implements ControlValueAccessor, OnInit {
   @Input() labelText?: string = '';
+  @Input() labelHelpText?: string = '';
   @Input() helpText?: string = '';
   @Input() type?: string = 'text';
   @Input() isDisabled?: boolean = false;
@@ -46,7 +47,7 @@ export class TextInputComponent implements ControlValueAccessor, OnInit {
 
   ngOnInit(): void {
     if (this.hasRequiredValidator()) {
-      this.helpText = 'Required';
+      this.labelHelpText = 'Required';
     }
   }
 
