@@ -7,7 +7,7 @@ import {
   Optional,
   Self,
 } from '@angular/core';
-import { ControlValueAccessor, NgControl } from '@angular/forms';
+import { ControlValueAccessor, FormControl, NgControl } from '@angular/forms';
 import { FORM_ERROR_PROVIDER } from '../../constants/error-factory';
 
 @Component({
@@ -24,12 +24,12 @@ export class TextInputComponent implements ControlValueAccessor, OnInit {
   @Input() isDisabled?: boolean = false;
   @Input() isRequired?: boolean = false;
   @Input() isReadOnly?: boolean = false;
-  @Input() maxLength?: number;
   @Input() placeholder?: string = '';
 
   errorMessage = '';
   value: any;
   isDisabledState = true;
+  maxLength?: number | null;
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-empty-function
   onChange: (_: any) => void = (_: any) => {};
@@ -49,6 +49,7 @@ export class TextInputComponent implements ControlValueAccessor, OnInit {
     if (this.hasRequiredValidator()) {
       this.labelHelpText = 'Required';
     }
+    this.maxLength = this.getMaxLength();
   }
 
   writeValue(value: any): void {
@@ -90,11 +91,29 @@ export class TextInputComponent implements ControlValueAccessor, OnInit {
     }
   }
 
-  hasRequiredValidator(): boolean {
+  private hasRequiredValidator(): boolean {
     if (this.ngControl && this.ngControl.control) {
       const errors = this.ngControl.control.errors;
       return errors && errors['required'];
     }
     return false;
+  }
+
+  private getMaxLength(): number | null {
+    if (this.ngControl && this.ngControl.control) {
+      const validator = this.ngControl.control.validator;
+
+      if (validator) {
+        const validationErrors = validator(
+          new FormControl(Array(10000).join('x'))
+        );
+
+        if (validationErrors && validationErrors['maxlength']) {
+          return validationErrors['maxlength']['requiredLength'];
+        }
+      }
+    }
+
+    return null;
   }
 }

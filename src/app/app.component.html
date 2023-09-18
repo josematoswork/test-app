@@ -20,6 +20,7 @@
             <mylib-text-input
               class="w-full"
               labelText="First name"
+              placeholder="Enter your first name"
               formControlName="firstName">
             </mylib-text-input>
 
@@ -29,6 +30,13 @@
               formControlName="lastName"
               helpText="This is a help text"
               [isDisabled]="true">
+            </mylib-text-input>
+
+            <mylib-text-input
+              class="w-full"
+              labelText="Read only"
+              formControlName="readOnly"
+              [isReadOnly]="true">
             </mylib-text-input>
           </div>
         </div>

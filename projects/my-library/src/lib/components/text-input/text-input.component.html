@@ -28,6 +28,7 @@
       [readOnly]="isReadOnly"
       [required]="isRequired"
       [placeholder]="placeholder ? placeholder : ''"
+      [attr.maxLength]="maxLength"
       (input)="onInputChange($event)" />
     <i-feather
       *ngIf="errorMessage"
