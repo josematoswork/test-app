@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
     ]),
     lastName: new UntypedFormControl('', [Validators.required]),
     readOnly: new UntypedFormControl('some text'),
+    disabled: new UntypedFormControl({ value: 'some text', disabled: true }),
   });
 
   ngOnInit(): void {

@@ -29,14 +29,22 @@
               labelText="Last name"
               formControlName="lastName"
               helpText="This is a help text"
-              [isDisabled]="true">
+              [showClearButton]="true">
             </mylib-text-input>
 
             <mylib-text-input
               class="w-full"
               labelText="Read only"
               formControlName="readOnly"
-              [isReadOnly]="true">
+              [isReadOnly]="true"
+              [isLoading]="true">
+            </mylib-text-input>
+
+            <mylib-text-input
+              class="w-full"
+              labelText="Disabled"
+              formControlName="disabled"
+              helpText="This is a help text">
             </mylib-text-input>
           </div>
         </div>

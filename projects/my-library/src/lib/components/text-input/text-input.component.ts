@@ -20,11 +20,13 @@ export class TextInputComponent implements ControlValueAccessor, OnInit {
   @Input() labelText?: string = '';
   @Input() labelHelpText?: string = '';
   @Input() helpText?: string = '';
+  @Input() placeholder?: string = '';
   @Input() type?: string = 'text';
   @Input() isDisabled?: boolean = false;
   @Input() isRequired?: boolean = false;
   @Input() isReadOnly?: boolean = false;
-  @Input() placeholder?: string = '';
+  @Input() isLoading?: boolean = false;
+  @Input() showClearButton?: boolean = false;
 
   errorMessage = '';
   value: any;
@@ -73,6 +75,10 @@ export class TextInputComponent implements ControlValueAccessor, OnInit {
     this.onChange(this.value);
     this.onTouched();
     this.setErrorText();
+  }
+
+  handleClearButtonClick() {
+    this.writeValue('');
   }
 
   private setErrorText(): void {

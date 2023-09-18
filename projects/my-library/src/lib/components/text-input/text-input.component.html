@@ -18,7 +18,7 @@
       class="w-full text-gray-600 dark:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 dark:focus:border-indigo-700 dark:border-gray-700 dark:bg-gray-800 bg-white font-normal h-10 flex items-center pl-3 text-sm border-gray-300 rounded border shadow"
       [ngClass]="{
         'border-red-700 focus:ring-red-700': errorMessage !== '',
-        '!dark:bg-gray-700 !bg-gray-200 ': isDisabled || isDisabledState
+        'dark:!bg-gray-700 !bg-gray-200 ': isDisabled || isDisabledState
       }"
       id="name"
       name="name"
@@ -32,9 +32,18 @@
       (input)="onInputChange($event)" />
     <i-feather
       *ngIf="errorMessage"
-      [myTooltip]="errorMessage"
-      class="absolute right-3 top-1/2 transform -translate-y-1/2 text-red-700"
+      [myTooltip]="errorMessage && !isLoading"
+      class="absolute right-3 top-1/2 transform -translate-y-1/2 text-red-700 cursor-pointer"
       name="alert-triangle"></i-feather>
+    <i-feather
+      *ngIf="isLoading"
+      class="absolute right-3 top-1/4 transform -translate-y-1/2 text-gray-600 dark:text-gray-400 spin"
+      name="loader"></i-feather>
+    <i-feather
+      *ngIf="!isLoading && !errorMessage && showClearButton && value"
+      class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-600 dark:text-gray-400 cursor-pointer"
+      name="x"
+      (click)="handleClearButtonClick()"></i-feather>
   </div>
   <p
     *ngIf="helpText"
