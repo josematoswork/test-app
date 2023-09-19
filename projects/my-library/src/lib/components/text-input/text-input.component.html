@@ -31,8 +31,8 @@
       [attr.maxLength]="maxLength"
       (input)="onInputChange($event)" />
     <i-feather
-      *ngIf="errorMessage"
-      [myTooltip]="errorMessage && !isLoading"
+      *ngIf="errorMessage && !isLoading"
+      [myTooltip]="errorMessage"
       class="absolute right-3 top-1/2 transform -translate-y-1/2 text-red-700 cursor-pointer"
       name="alert-triangle"></i-feather>
     <i-feather
@@ -41,7 +41,7 @@
       name="loader"></i-feather>
     <i-feather
       *ngIf="!isLoading && !errorMessage && showClearButton && value"
-      class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-600 dark:text-gray-400 cursor-pointer"
+      class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-600 dark:text-gray-400 cursor-pointer clear-button"
       name="x"
       (click)="handleClearButtonClick()"></i-feather>
   </div>
