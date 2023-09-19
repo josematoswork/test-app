@@ -8,9 +8,9 @@
     for="name"
     >{{ labelText }}
     <span
-      *ngIf="labelHelpText"
+      *ngIf="labelHelperText"
       class="text-xs text-gray-600 dark:text-gray-400 italic font-normal">
-      - {{ labelHelpText }}
+      - {{ labelHelperText }}
     </span>
   </label>
   <div class="relative">
@@ -46,8 +46,8 @@
       (click)="handleClearButtonClick()"></i-feather>
   </div>
   <p
-    *ngIf="helpText"
+    *ngIf="helperText"
     class="text-xs leading-3 tracking-normal text-gray-600 dark:text-gray-400 mt-2">
-    {{ helpText }}
+    {{ helperText }}
   </p>
 </div>

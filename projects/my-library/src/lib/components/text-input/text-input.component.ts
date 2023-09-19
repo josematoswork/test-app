@@ -18,18 +18,18 @@ import { FORM_ERROR_PROVIDER } from '../../constants/error-factory';
 })
 export class TextInputComponent implements ControlValueAccessor, OnInit {
   @Input() labelText?: string = '';
-  @Input() labelHelpText?: string = '';
-  @Input() helpText?: string = '';
+  @Input() labelHelperText?: string = '';
+  @Input() helperText?: string = '';
   @Input() placeholder?: string = '';
   @Input() type?: string = 'text';
   @Input() isDisabled?: boolean = false;
-  @Input() isRequired?: boolean = false;
   @Input() isReadOnly?: boolean = false;
   @Input() isLoading?: boolean = false;
   @Input() showClearButton?: boolean = false;
 
   errorMessage = '';
   value: any;
+  isRequired?: boolean = false;
   isDisabledState = true;
   maxLength?: number | null;
 
@@ -49,7 +49,7 @@ export class TextInputComponent implements ControlValueAccessor, OnInit {
 
   ngOnInit(): void {
     if (this.hasRequiredValidator()) {
-      this.labelHelpText = 'Required';
+      this.labelHelperText = 'Required';
     }
     this.maxLength = this.getMaxLength();
   }
