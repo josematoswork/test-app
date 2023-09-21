@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:lib": "ng build my-library",
+    "build:lib": "npm run tailwind:lib && ng build my-library",
     "watch:lib": "ng build my-library --watch --configuration development",
     "test": "ng test",
     "test:lib": "ng test my-library",
@@ -13,7 +13,8 @@
     "code-coverage": "ng test --no-watch --code-coverage --browsers=ChromeHeadlessCI",
     "lint": "ng lint",
     "lint:fix": "ng lint --fix",
-    "format": "npx prettier --write ."
+    "format": "npx prettier --write .",
+    "tailwind:lib": "npx tailwindcss -c ./projects/my-library/my-library.tailwind.config.js -o ./projects/my-library/assets/styles.css"
   },
   "private": true,
   "dependencies": {
