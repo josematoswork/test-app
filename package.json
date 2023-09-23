@@ -7,6 +7,7 @@
     "build": "npm run build:lib && npm run build:app",
     "build:app": "ng build",
     "build:lib": "npm run tailwind:lib && ng build my-library",
+    "build:storybook": "ng run test-app:build-storybook",
     "watch:lib": "ng build my-library --watch --configuration development",
     "test": "ng test",
     "test:lib": "ng test my-library",
@@ -15,7 +16,8 @@
     "lint": "ng lint",
     "lint:fix": "ng lint --fix",
     "format": "npx prettier --write .",
-    "tailwind:lib": "npx tailwindcss -c ./projects/my-library/my-library.tailwind.config.js -o ./projects/my-library/assets/styles.css"
+    "tailwind:lib": "npx tailwindcss -c ./projects/my-library/my-library.tailwind.config.js -o ./projects/my-library/assets/styles.css",
+    "storybook": "ng run test-app:storybook"
   },
   "private": true,
   "dependencies": {
@@ -42,6 +44,12 @@
     "@angular-eslint/template-parser": "16.1.2",
     "@angular/cli": "~16.2.2",
     "@angular/compiler-cli": "^16.2.0",
+    "@storybook/addon-essentials": "^7.4.4",
+    "@storybook/addon-interactions": "^7.4.4",
+    "@storybook/addon-links": "^7.4.4",
+    "@storybook/angular": "^7.4.4",
+    "@storybook/blocks": "^7.4.4",
+    "@storybook/testing-library": "^0.2.1",
     "@types/jasmine": "~4.3.0",
     "@typescript-eslint/eslint-plugin": "5.62.0",
     "@typescript-eslint/parser": "5.62.0",
@@ -49,6 +57,7 @@
     "eslint": "^8.47.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-storybook": "^0.6.14",
     "jasmine-core": "~4.6.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
@@ -59,6 +68,9 @@
     "postcss": "^8.4.29",
     "prettier": "^3.0.3",
     "prettier-eslint": "^15.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "storybook": "^7.4.4",
     "tailwindcss": "^3.3.3",
     "typescript": "~5.1.3"
   }
