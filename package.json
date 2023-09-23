@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "npm run build:lib && npm run build:app",
+    "build:app": "ng build",
     "build:lib": "npm run tailwind:lib && ng build my-library",
     "watch:lib": "ng build my-library --watch --configuration development",
     "test": "ng test",
