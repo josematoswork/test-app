@@ -1,27 +1,44 @@
-# TestApp
+# Test App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.2.
+This project demonstrates clean code principles and design patterns in an Angular application. 
 
-## Development server
+## Overview
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+This is a simple Angular application generated with Angular CLI. It includes:
 
-## Code scaffolding
+- An Angular library module (my-library) 
+- Example components, services, models, etc.
+- Unit and end-to-end tests
+- Continuous integration setup
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Clean Code Practices
 
-## Build
+The codebase follows principles like:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Meaningful naming conventions
+- Small focused functions/classes 
+- DRY (Don't Repeat Yourself) principles
+- Consistent code style and formatting
+- Extensive commenting for complex logic
+- Avoiding deep nesting and complex conditions
 
-## Running unit tests
+## Design Patterns
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Some patterns used in the code:
 
-## Running end-to-end tests
+- Dependency Injection for services, repos, etc
+- Singleton services
+- Model-View-Controller pattern with Angular components
+- Repository pattern for abstracting data access
+- Pub/sub pattern for event handling
+- Strategy pattern for swappable algorithms
+- Facade pattern to simplify interfaces
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Getting Started
 
-## Further help
+Instructions for setting up the project locally:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+1. Clone the repo
+2. Install dependencies with `npm install`
+3. Start dev server with `ng serve`
+4. Run tests with `ng test` 
