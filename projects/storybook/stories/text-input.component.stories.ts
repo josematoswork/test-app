@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { moduleMetadata, Meta, Story } from '@storybook/angular';
-import { TextInputComponent } from './text-input.component';
-import { TextInputModule } from '../../modules';
+import { TextInputComponent } from '../../my-library/src/lib/components/text-input/text-input.component';
+import { TextInputModule } from '../../my-library/src/lib/modules';
 
 export default {
   component: TextInputComponent,

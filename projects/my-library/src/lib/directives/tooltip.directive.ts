@@ -62,7 +62,6 @@ export class TooltipDirective implements OnInit {
 
     setTimeout(() => {
       const tooltipWidth = this.tooltipElement.offsetWidth;
-      const tooltipHeight = this.tooltipElement.offsetHeight;
 
       const leftPosition = elRect.left - tooltipWidth / 2 + elRect.width / 2;
       const topPosition = elRect.top + elRect.height + 10;

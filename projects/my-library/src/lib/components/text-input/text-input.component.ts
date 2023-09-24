@@ -30,7 +30,7 @@ export class TextInputComponent implements ControlValueAccessor, OnInit {
   errorMessage = '';
   value: any;
   isRequired?: boolean = false;
-  isDisabledState = true;
+  isDisabledState = false;
   maxLength?: number | null;
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-empty-function
