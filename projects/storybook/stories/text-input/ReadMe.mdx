@@ -1,0 +1,35 @@
+import { Meta, Primary, Controls, Story } from '@storybook/blocks';
+import * as TextInputStories from './text-input.component.stories.ts';
+import { TextInputComponent } from '../../../my-library/src/lib/components/text-input/text-input.component';
+
+<Meta
+  title="Design System/Atoms/Text Input/ReadMe"
+  of={TextInputStories}
+  component={TextInputComponent}
+/>
+;
+
+# `TextInputComponent`
+
+`TextInputComponent` is a flexible and customizable input component for Angular. It provides several features and options, allowing you to create a variety of input fields tailored to your application's needs.
+
+## Props & Features
+
+- **labelText**: Text for the input's label.
+- **labelHelperText**: Supplementary information for the label.
+- **helperText**: Helper text directly related to the input field.
+- **placeholder**: Placeholder text for the input field.
+- **type**: Type of the input (e.g., text, password, etc.).
+- **isDisabled**: Whether the input is disabled.
+- **isReadOnly**: Whether the input is read-only.
+- **isLoading**: Display a loading state for the input.
+- **showClearButton**: Show a clear button to clear the input's value.
+
+## Usage
+
+To use the `TextInputComponent`, import it and add it to your template. Here's an example of a basic text input:
+
+```angular
+<mylib-text-input labelText="Username" placeholder="Enter your username">
+</mylib-text-input>
+```

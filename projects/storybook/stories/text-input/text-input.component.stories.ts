@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { moduleMetadata, Meta, Story } from '@storybook/angular';
-import { TextInputComponent } from '../../my-library/src/lib/components/text-input/text-input.component';
-import { TextInputModule } from '../../my-library/src/lib/modules';
+import { action } from '@storybook/addon-actions';
+import { TextInputComponent } from '../../../my-library/src/lib/components/text-input/text-input.component';
+import { TextInputModule } from '../../../my-library/src/lib/modules';
 
 export default {
   component: TextInputComponent,
@@ -11,10 +12,15 @@ export default {
     }),
   ],
   title: 'Design System/Atoms/Text Input',
+  tags: ['autodocs'],
+  argTypes: {
+    onChange: { action: 'changed' },
+    onClear: { action: 'cleared' },
+  },
 } as Meta;
 
 const Template: Story = args => ({
-  props: { ...args },
+  props: { ...args, onChange: action('changed'), onClear: action('cleared') },
 });
 
 export const Default = Template.bind({});
