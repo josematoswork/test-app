@@ -20,27 +20,56 @@ const Template: Story = args => ({
 export const Default = Template.bind({});
 Default.args = {
   labelText: 'example label',
-  value: '',
   placeholder: 'Placeholder text',
+  type: 'text',
+  isDisabled: false,
+  isReadOnly: false,
+  isLoading: false,
+  showClearButton: false,
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
-  value: '',
   labelText: 'Disabled',
   placeholder: 'Placeholder text',
   isDisabled: true,
 };
 
+export const ReadOnly = Template.bind({});
+ReadOnly.args = {
+  labelText: 'Read Only',
+  placeholder: 'Placeholder text',
+  isReadOnly: true,
+};
+
+export const LoadingState = Template.bind({});
+LoadingState.args = {
+  labelText: 'Loading',
+  placeholder: 'Placeholder text',
+  isLoading: true,
+};
+
+export const ClearButton = Template.bind({});
+ClearButton.args = {
+  labelText: 'With Clear Button',
+  placeholder: 'Placeholder text',
+  showClearButton: true,
+};
+
+export const PasswordType = Template.bind({});
+PasswordType.args = {
+  labelText: 'Password',
+  placeholder: 'Enter password',
+  type: 'password',
+};
+
 export const NoLabel = Template.bind({});
 NoLabel.args = {
-  value: '',
   placeholder: 'Placeholder text',
 };
 
 export const HelperText = Template.bind({});
 HelperText.args = {
-  value: '',
   labelText: 'Example label',
   placeholder: 'Placeholder text',
   helperText: 'Optional helper text',
@@ -48,7 +77,6 @@ HelperText.args = {
 
 export const LabelHelperText = Template.bind({});
 LabelHelperText.args = {
-  value: '',
   labelText: 'example label',
   placeholder: 'Placeholder text',
   labelHelperText: 'Optional label helper text',
@@ -56,7 +84,7 @@ LabelHelperText.args = {
 
 export const WithValue = Template.bind({});
 WithValue.args = {
-  value: 'some initial text',
   labelText: 'Example label',
   placeholder: 'Placeholder text',
+  value: 'some initial text',
 };
